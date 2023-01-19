@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>authorization</class>
+ <widget class="QDialog" name="authorization">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>495</width>
+    <height>599</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Car Rent</string>
+  </property>
+  <widget class="QLabel" name="UserText">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>250</y>
+     <width>160</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe Print</family>
+     <pointsize>18</pointsize>
+     <italic>false</italic>
+     <bold>true</bold>
+     <underline>false</underline>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 18pt &quot;Segoe Print&quot;;
+color: rgb(0, 0, 0);
+</string>
+   </property>
+   <property name="text">
+    <string>Псевдоним</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="CreateBtn">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>450</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe Print</family>
+     <pointsize>14</pointsize>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgba(255, 255, 255, 0);
+border-radius: 10px;
+color: rgba(192, 192, 192, 240);
+text-align: center;
+}
+QPushButton:pressed{
+background-color: rgba(255, 255, 255, 0);
+border-radius: 10px;
+color: rgba(128, 128, 128, 240);
+text-align: center;
+}
+
+QPushButton{
+background-color: rgba(255, 255, 255, 100);
+border-radius: 10px;
+color: rgba(192, 192, 192, 240);
+color: black;
+text-align: center;
+font: 700 14pt &quot;Segoe Print&quot;;
+}</string>
+   </property>
+   <property name="text">
+    <string>Регистрация</string>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="BlurImage">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>100</y>
+     <width>300</width>
+     <height>400</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(192, 192, 192, 150);
+border-radius: 30px;
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="UserInput">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>290</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 100);
+border-radius: 10px;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="PasswdText">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>319</y>
+     <width>160</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe Print</family>
+     <pointsize>18</pointsize>
+     <italic>false</italic>
+     <bold>true</bold>
+     <underline>false</underline>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 18pt &quot;Segoe Print&quot;;
+color: rgb(0, 0, 0);
+</string>
+   </property>
+   <property name="text">
+    <string>Пароль</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="PasswdInput">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>360</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255, 255, 255, 100);
+border-radius: 10px;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="BgImage">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>500</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 85, 255)
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SingInBtn">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>410</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe Print</family>
+     <pointsize>14</pointsize>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgba(255, 255, 255, 0);
+border-radius: 10px;
+color: rgba(192, 192, 192, 240);
+text-align: center;
+}
+QPushButton:pressed{
+background-color: rgba(255, 255, 255, 0);
+border-radius: 10px;
+color: rgba(128, 128, 128, 240);
+text-align: center;
+}
+
+QPushButton{
+background-color: rgba(255, 255, 255, 100);
+border-radius: 10px;
+color: rgba(192, 192, 192, 240);
+color: black;
+text-align: center;
+font: 700 14pt &quot;Segoe Print&quot;;
+}</string>
+   </property>
+   <property name="text">
+    <string>Войти</string>
+   </property>
+   <property name="autoRepeat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ErrorText">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>395</y>
+     <width>200</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Cascadia Code</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(115, 0, 2);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="UserText_2">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>140</y>
+     <width>171</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>16</pointsize>
+     <italic>true</italic>
+     <bold>true</bold>
+     <underline>false</underline>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 italic 16pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
+</string>
+   </property>
+   <property name="text">
+    <string>АРЕНДА АВТО</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>BgImage</zorder>
+  <zorder>BlurImage</zorder>
+  <zorder>CreateBtn</zorder>
+  <zorder>UserInput</zorder>
+  <zorder>PasswdInput</zorder>
+  <zorder>UserText</zorder>
+  <zorder>PasswdText</zorder>
+  <zorder>ErrorText</zorder>
+  <zorder>SingInBtn</zorder>
+  <zorder>UserText_2</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
