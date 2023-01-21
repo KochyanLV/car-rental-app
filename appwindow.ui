@@ -35,7 +35,7 @@
        <x>20</x>
        <y>10</y>
        <width>170</width>
-       <height>30</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -58,7 +58,7 @@
        <x>20</x>
        <y>60</y>
        <width>180</width>
-       <height>30</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -81,7 +81,7 @@
        <x>20</x>
        <y>110</y>
        <width>180</width>
-       <height>30</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -104,7 +104,7 @@
        <x>20</x>
        <y>160</y>
        <width>180</width>
-       <height>30</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -126,8 +126,8 @@
       <rect>
        <x>20</x>
        <y>210</y>
-       <width>180</width>
-       <height>30</height>
+       <width>181</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -141,7 +141,7 @@
       <string notr="true">color: rgb(255, 255, 255);</string>
      </property>
      <property name="text">
-      <string>Псевдоним:</string>
+      <string>Никнейм:</string>
      </property>
     </widget>
     <widget class="QLabel" name="PasswordText">
@@ -150,7 +150,7 @@
        <x>20</x>
        <y>260</y>
        <width>180</width>
-       <height>30</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -173,7 +173,7 @@
        <x>230</x>
        <y>10</y>
        <width>300</width>
-       <height>31</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -196,7 +196,7 @@
        <x>230</x>
        <y>59</y>
        <width>300</width>
-       <height>31</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -219,7 +219,7 @@
        <x>230</x>
        <y>110</y>
        <width>300</width>
-       <height>31</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -242,7 +242,7 @@
        <x>230</x>
        <y>160</y>
        <width>300</width>
-       <height>31</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -265,7 +265,7 @@
        <x>230</x>
        <y>260</y>
        <width>300</width>
-       <height>31</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
@@ -288,7 +288,7 @@
        <x>230</x>
        <y>210</y>
        <width>300</width>
-       <height>31</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
