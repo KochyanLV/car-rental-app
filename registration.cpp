@@ -2,6 +2,8 @@
 #include "authorization.h"
 #include "ui_registration.h"
 
+#pragma execution_character_set("utf-8")
+
 Registration::Registration(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Registration){
@@ -27,7 +29,7 @@ void Registration::on_RegistrBtn_clicked(){
        query.bindValue(":username", username);
        if (query.exec()) {
          if (query.first()) {
-           ui->ErrorText->setText("Change the username!");
+           ui->ErrorText->setText("Измените никнейм!");
          }
          else {
              if (!password.isEmpty() && !firstname.isEmpty() && !lastname.isEmpty() && !email.isEmpty() && !username.isEmpty() && !password.isEmpty()){
@@ -47,10 +49,10 @@ void Registration::on_RegistrBtn_clicked(){
                      query.bindValue(":username", username);
                      query.bindValue(":password", password);
                      if (!query.exec()) {
-                       ui->ErrorText->setText("Failed, try again!");
+                       ui->ErrorText->setText("Ошибка, попробуйте ещё раз!");
                      }
                      else{
-                       ui->ErrorText->setText("Successful!");
+                       ui->ErrorText->setText("Успешно!");
                        hide();
                        authorization AppWind;
                        AppWind.setModal(true);
@@ -58,16 +60,16 @@ void Registration::on_RegistrBtn_clicked(){
                      }
                  }
                  else{
-                     ui->ErrorText->setText("Check the passwords!");
+                     ui->ErrorText->setText("Проверьте правильность паролей!");
                  }
              }
              else{
-                  ui->ErrorText->setText("Fill all rows!");
+                  ui->ErrorText->setText("Заполните все поля!");
              }
          }
        }
        else {
-          ui->ErrorText->setText("Something went wrong with database!");
+          ui->ErrorText->setText("Что-то не так с базой данных!");
        }
 
 }

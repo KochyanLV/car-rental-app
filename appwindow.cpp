@@ -1,7 +1,6 @@
 #include "appwindow.h"
 #include "ui_appwindow.h"
 #include "authorization.h"
-
 #include <QSqlTableModel>
 #include <QTableView>
 #include <QHeaderView>
@@ -36,7 +35,7 @@ AppWindow::AppWindow(QWidget *parent) :
         ui->PasswordText_2->setText(password);
       }
       } else {
-        ui->FirstNameText_2->setText("Error executing query");
+        ui->FirstNameText_2->setText("Ошибка запроса!");
       }
     //Rent A Car Part
     QSqlTableModel *tableModelRent;
@@ -130,12 +129,12 @@ void AppWindow::on_RentBtn_clicked() {
      query.prepare("SELECT rentedbyid, brand, model FROM cars WHERE id = :id");
      query.bindValue(":id", carsId);
     if (!query.exec()) {
-        ui->ErrorText->setText("Error opening!");
+        ui->ErrorText->setText("Ошибка запроса!");
         QTimer::singleShot(2000, [this] { ui->ErrorText->setText(""); });
         return;
     }
     if (!query.next()) {
-        ui->ErrorText->setText("Car not found!");
+        ui->ErrorText->setText("Машина не найдена!");
         QTimer::singleShot(2000, [this] { ui->ErrorText->setText(""); });
         return;
     }
@@ -143,7 +142,7 @@ void AppWindow::on_RentBtn_clicked() {
     QString brand= query.value(1).toString();
     QString model= query.value(2).toString();
     if (rentedbyid != 0) {
-        ui->ErrorText->setText("Car already rented!");
+        ui->ErrorText->setText("Машина уже арендована!");
         QTimer::singleShot(2000, [this] { ui->ErrorText->setText(""); });
         return;
     }
@@ -153,7 +152,7 @@ void AppWindow::on_RentBtn_clicked() {
      queryRent.bindValue(":rentedbyid", getId());
      queryRent.bindValue(":carsId", carsId);
      if (!queryRent.exec()) {
-        ui->ErrorText->setText("Error inserting!");
+        ui->ErrorText->setText("Ошибка ввода");
         QTimer::singleShot(2000, [this] { ui->ErrorText->setText(""); });
         return;
      }
@@ -174,12 +173,12 @@ void AppWindow::on_RentBtn_clicked() {
         queryRentDate.bindValue(":brand", brand);
         queryRentDate.bindValue(":model", model);
         if (!queryRentDate.exec()) {
-          ui->ErrorText->setText("Error inserting!");
+          ui->ErrorText->setText("Ошибка ввода!");
           QTimer::singleShot(2000, [this] { ui->ErrorText->setText(""); });
           return;
          }
 
-      ui->ErrorText->setText("Rented!");
+      ui->ErrorText->setText(QString::fromUtf8("Арендована!"));
       ui->CarsIdInput->setText("");
       QTimer::singleShot(2000, [this] { ui->ErrorText->setText(""); });
 
@@ -196,16 +195,16 @@ void AppWindow::on_ReturnBtn_clicked() {
       queryCheck.prepare("SELECT rentedbyid FROM cars WHERE id = :id");
       queryCheck.bindValue(":id", carId);
      if (!queryCheck.exec()) {
-        ui->ErrorText_2->setText("Error query check!");
+        ui->ErrorText_2->setText("Ошибка!");
         return;
       }
      if (!queryCheck.next()) {
-        ui->ErrorText_2->setText("Car not found check!");
+        ui->ErrorText_2->setText("Машина не найдена!");
         return;
       }
      int rentedbyid = queryCheck.value(0).toInt();
      if (rentedbyid != getId()) {
-        ui->ErrorText_2->setText("Car is not rented by you!");
+        ui->ErrorText_2->setText("Машина арендована не вами!");
         return;
       }
 
@@ -216,7 +215,7 @@ void AppWindow::on_ReturnBtn_clicked() {
       queryAddReturnDate.bindValue(":userid", getId());
       queryAddReturnDate.bindValue(":carid", carId);
      if (!queryAddReturnDate.exec()) {
-          ui->ErrorText_2->setText("Error additing return date!");
+          ui->ErrorText_2->setText("Ошибка даты возврата");
           return;
         }
 
@@ -230,12 +229,12 @@ void AppWindow::on_ReturnBtn_clicked() {
       queryDate.bindValue(":carid", carId);
     if (!queryDate.exec()) {
         // There was an error executing the query
-        ui->ErrorText_2->setText("Error selecting dates");
+        ui->ErrorText_2->setText("Ошибка выбора дат!");
         return;
     }
     if (!queryDate.next()) {
         // There are no records in the result set
-        ui->ErrorText_2->setText("No records found");
+        ui->ErrorText_2->setText("Не найдены записи!");
         return;
     }
     // The query was successful and there are records in the result set
@@ -247,11 +246,11 @@ void AppWindow::on_ReturnBtn_clicked() {
     queryCarPrice.prepare("SELECT price FROM cars WHERE id = :id");
     queryCarPrice.bindValue(":id", carId);
     if (!queryCarPrice.exec()) {
-        ui->ErrorText_2->setText("Error selecting car price");
+        ui->ErrorText_2->setText("Ошибка подсчёта цены!");
         return;
     }
     if (!queryCarPrice.next()) {
-        ui->ErrorText_2->setText("Car not found");
+        ui->ErrorText_2->setText("Машина не найдена!");
         return;
     }
     int rentpriceday = queryCarPrice.value(0).toInt();
@@ -264,7 +263,7 @@ void AppWindow::on_ReturnBtn_clicked() {
     queryUpdatePriceAndDays.bindValue(":userid", getId());
     queryUpdatePriceAndDays.bindValue(":carid", carId);
     if (!queryUpdatePriceAndDays.exec()) {
-        ui->ErrorText_2->setText("Error updating price and days");
+        ui->ErrorText_2->setText("Ошибка обновления цены!");
         return;
     }
 
@@ -274,13 +273,13 @@ void AppWindow::on_ReturnBtn_clicked() {
       queryReturn.bindValue(":rentedbyid", 0);
       queryReturn.bindValue(":id", carId);
      if (!queryReturn.exec()) {
-       ui->ErrorText_2->setText("Error returning car");
+       ui->ErrorText_2->setText("Ошибка возврата машины!");
        return;
      }
 
 
     //Finish
-    ui->ErrorText_2->setText("Returned!");
+    ui->ErrorText_2->setText("Возвращена!");
     ui->CarsIdReturnInput->setText("");
     QTimer::singleShot(2000, [this] { ui->ErrorText_2->setText(""); });
 
@@ -289,12 +288,12 @@ void AppWindow::on_ReturnBtn_clicked() {
     queryPriceCounter.prepare("SELECT SUM(price) FROM rentdatedb WHERE userid = :userid AND price > 1");
     queryPriceCounter.bindValue(":userid", getId());
     if (!queryPriceCounter.exec()) {
-        ui->PriceShow->setText("Error opening price!");
+        ui->PriceShow->setText("Ошибка цены!");
         QTimer::singleShot(2000, [this] { ui->ErrorText->setText(""); });
         return;
     }
     if (!queryPriceCounter.next()) {
-        ui->PriceShow->setText("Price not found!");
+        ui->PriceShow->setText("Цена не найдена!");
         QTimer::singleShot(2000, [this] { ui->ErrorText->setText(""); });
         return;
     }

@@ -2,7 +2,7 @@
 #include "ui_authorization.h"
 #include "appwindow.h"
 #include "registration.h"
-
+#pragma execution_character_set("utf-8")
 int userId = 0;
 int getId(){return userId;}
 void setId(int id){userId=id;}
@@ -47,7 +47,7 @@ void authorization::on_SingInBtn_clicked(){
            AppWind.setModal(true);
            AppWind.exec();
        } else {
-           ui->ErrorText->setText("Invalid");
+           ui->ErrorText->setText("Неверные данные!");
        }
 
 }
