@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.5)
 
 project(autorent VERSION 0.1 LANGUAGES CXX)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/install" CACHE PATH "..." FORCE)
 endif()
@@ -38,7 +36,15 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
     )
 else()
-     add_executable(autorent ${PROJECT_SOURCES})
+    if(ANDROID)
+        add_library(autorent SHARED
+            ${PROJECT_SOURCES}
+        )
+    else()
+        add_executable(autorent
+            ${PROJECT_SOURCES}
+        )
+    endif()
 endif()
 
 target_link_libraries(autorent PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
